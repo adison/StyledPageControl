@@ -243,6 +243,8 @@
             }
             else
             {
+                CGContextSetFillColorWithColor(myContext, [coreNormalColor CGColor]);
+                CGContextFillEllipseInRect(myContext, CGRectMake(x,(self.frame.size.height-diameter)/2,diameter,diameter));
                 CGContextSetStrokeColorWithColor(myContext, [strokeNormalColor CGColor]);
                 CGContextStrokeEllipseInRect(myContext, CGRectMake(x,(self.frame.size.height-diameter)/2,diameter,diameter));
             }
@@ -259,6 +261,8 @@
             }
             else
             {
+                CGContextSetFillColorWithColor(myContext, [coreNormalColor CGColor]);
+                CGContextFillRect(myContext, CGRectMake(x,(self.frame.size.height-diameter)/2,diameter,diameter));
                 CGContextSetStrokeColorWithColor(myContext, [strokeNormalColor CGColor]);
                 CGContextStrokeRect(myContext, CGRectMake(x,(self.frame.size.height-diameter)/2,diameter,diameter));
             }
