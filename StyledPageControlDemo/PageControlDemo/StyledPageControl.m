@@ -67,6 +67,7 @@
 	_pageControlStyle = PageControlStyleDefault;
 	
 	UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapped:)];
+    tapGestureRecognizer.delegate = self;
 	[self addGestureRecognizer:tapGestureRecognizer];
 }
 
@@ -396,6 +397,13 @@
         aSelectedThumbImage = self.selectedThumbImage;
     
     return aSelectedThumbImage;
+}
+
+#pragma mark - UIGestureRecognizerDelegate
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return YES;
 }
 
 @end

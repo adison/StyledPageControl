@@ -46,7 +46,7 @@ typedef enum
     PageControlStyleStrokedSquare = 6,
 } PageControlStyle;
 
-@interface StyledPageControl : UIControl
+@interface StyledPageControl : UIControl <UIGestureRecognizerDelegate>
 @property (nonatomic) UIColor *coreNormalColor, *coreSelectedColor;
 @property (nonatomic) UIColor *strokeNormalColor, *strokeSelectedColor;
 @property (nonatomic, assign) NSInteger currentPage, numberOfPages;
