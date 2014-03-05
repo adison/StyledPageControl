@@ -80,14 +80,7 @@
         // move left
         if (self.currentPage>0)
         {
-            if (touchPoint.x <= 22)
-            {
-                self.currentPage = 0;
-            }
-            else
-            {
-                self.currentPage -= 1;
-            }
+            self.currentPage -= 1;
         }
         
     }
@@ -96,14 +89,7 @@
         // move right
         if (self.currentPage<self.numberOfPages-1)
         {
-            if (touchPoint.x >= (CGRectGetWidth(self.bounds) - 22))
-            {
-                self.currentPage = self.numberOfPages-1;
-            }
-            else
-            {
-                self.currentPage += 1;
-            }
+            self.currentPage += 1;
         }
     }
     [self setNeedsDisplay];
