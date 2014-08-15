@@ -267,11 +267,15 @@
                 CGContextStrokeEllipseInRect(myContext, CGRectMake(x,(self.frame.size.height-_currentPageDiameter)/2,_currentPageDiameter,_currentPageDiameter));
             
                 NSString *pageNumber = [NSString stringWithFormat:@"%i", i+1];
-                CGContextSetFillColorWithColor(myContext, [[UIColor whiteColor] CGColor]);
+
+                NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+                [paragraphStyle setLineBreakMode:NSLineBreakByCharWrapping];
+                [paragraphStyle setAlignment:NSTextAlignmentCenter];                
+
                 [pageNumber drawInRect:CGRectMake(x,(self.frame.size.height-_currentPageDiameter)/2-1,_currentPageDiameter,_currentPageDiameter)
-                              withFont:[UIFont systemFontOfSize:_currentPageDiameter-2]
-                         lineBreakMode:NSLineBreakByCharWrapping
-                             alignment:NSTextAlignmentCenter];
+                        withAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:_currentPageDiameter-2],
+                                         NSParagraphStyleAttributeName: paragraphStyle,
+                                         NSForegroundColorAttributeName: [UIColor whiteColor]}];
             }
             else
             {
